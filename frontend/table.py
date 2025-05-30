@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field, TypeAdapter
 
 from header import demo_page
 
-router = APIRouter()
+router = APIRouter(prefix="/table")
 
 
 class Route(BaseModel):
@@ -27,20 +27,16 @@ class Route(BaseModel):
 
 # @cache 
 def routes_list() -> list[Route]:
-    print("made it to routes list")
     routes_adapter = TypeAdapter(list[Route])
     routes_file = Path(__file__).parent / 'routes.json'
-    print(f"Looking for file at: {routes_file}")
-    print(f"File exists: {routes_file.exists()}")
     routes = routes_adapter.validate_json(routes_file.read_bytes())
     # routes.sort(key=lambda city: city.population, reverse=True)
     return routes
 
 # TODO add filter functionality with FilterForm
 
-@router.get('/table/routes', response_model=FastUI, response_model_exclude_none=True)
+@router.get('', response_model=FastUI, response_model_exclude_none=True)
 def routes_view(page: int = 1) -> list[AnyComponent]:
-    print("looking for routes")
     routes = routes_list()
     page_size = 1
     return demo_page(
@@ -48,7 +44,7 @@ def routes_view(page: int = 1) -> list[AnyComponent]:
             data=routes[(page - 1) * page_size : page * page_size],
             data_model=Route, 
             columns=[
-                DisplayLookup(field='name', table_width_percent=16), 
+                DisplayLookup(field='name', table_width_percent=17), 
                 DisplayLookup(field='customer', table_width_percent=16),
                 DisplayLookup(field='origin', table_width_percent=16), 
                 DisplayLookup(field='load_port', table_width_percent=16),

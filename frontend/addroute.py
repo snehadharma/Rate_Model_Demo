@@ -16,7 +16,7 @@ from header import demo_page
 router = APIRouter()
 
 
-router.get("/addroute", response_class=FastUI, response_model_exclude_none=True)
+router.get("", response_class=FastUI, response_model_exclude_none=True)
 def add_router() -> list[AnyComponent]:
     markdown = """Insert add route fuctionality here."""
     return demo_page(c.Markdown(text=markdown))

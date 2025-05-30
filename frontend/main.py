@@ -46,9 +46,8 @@ app.add_middleware(
 
 
 app.include_router(index_router, prefix="/api")
-app.include_router(table_router, prefix='/api')
-# print(f"Router included with prefix /api/table/routes")
-app.include_router(add_router, prefix='/api/addrouter')
+app.include_router(table_router, prefix='/api/table/routes')
+app.include_router(add_router, prefix='/api/addroute')
 
 
 
