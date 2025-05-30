@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "manual entry",
+        "customer": "equinor",
+        "origin": "houston",
+        "load_port": "baton rouge",
+        "discharge_port": "bolivar",
+        "redelivery": "brownsville"
+    }, 
+    {
+        "id": 2,
+        "name": "sage",
+        "customer": "unicorns",
+        "origin": "fairyland",
+        "load_port": "fairytopia",
+        "discharge_port": "carmel",
+        "redelivery": "paris"
+    },
+    {
+        "id": 3,
+        "name": "thumbelina",
+        "customer": "barbie",
+        "origin": "italy",
+        "load_port": "lake como",
+        "discharge_port": "queens",
+        "redelivery": "sneha"
+    }
+]
