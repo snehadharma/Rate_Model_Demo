@@ -10,7 +10,7 @@ router = APIRouter()
 
 @router.get('/', response_model=FastUI, response_model_exclude_none=True)
 def api_index() -> list[AnyComponent]:
-    markdown = """\ Welcome to the Rate Model Demo! """
+    markdown = """Welcome to the Rate Model Demo! """
     return demo_page(c.Markdown(text=markdown))
 
 @router.get('/{path:path}', status_code=404)

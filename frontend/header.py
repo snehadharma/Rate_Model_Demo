@@ -18,6 +18,11 @@ def demo_page(*components: AnyComponent, title: str | None = None) -> list[AnyCo
                     components=[c.Text(text='Add Route')],
                     on_click=GoToEvent(url='/addroute'),
                     active='startswith:/addroute',
+                ), 
+                c.Link(
+                    components=[c.Text(text='Show Routes')],
+                    on_click=GoToEvent(url='/table/routes'),
+                    active='startswith:/table',
                 )
             ],
         ),

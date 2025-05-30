@@ -25,8 +25,9 @@ class Route(BaseModel):
     discharge_port: str
     redelivery: str
 
-@cache 
+# @cache 
 def routes_list() -> list[Route]:
+    print("made it to routes list")
     routes_adapter = TypeAdapter(list[Route])
     routes_file = Path(__file__).parent / 'routes.json'
     print(f"Looking for file at: {routes_file}")
@@ -37,8 +38,9 @@ def routes_list() -> list[Route]:
 
 # TODO add filter functionality with FilterForm
 
-@router.get("/routes", response_model=FastUI, response_model_exclude_none=True)
+@router.get('/table/routes', response_model=FastUI, response_model_exclude_none=True)
 def routes_view(page: int = 1) -> list[AnyComponent]:
+    print("looking for routes")
     routes = routes_list()
     page_size = 1
     return demo_page(
