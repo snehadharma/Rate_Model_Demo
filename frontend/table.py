@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field, TypeAdapter
 
 from header import demo_page
 
-router = APIRouter(prefix="/table")
+router = APIRouter()
 
 
 class Route(BaseModel):
@@ -35,7 +35,7 @@ def routes_list() -> list[Route]:
 
 # TODO add filter functionality with FilterForm
 
-@router.get('', response_model=FastUI, response_model_exclude_none=True)
+@router.get('/', response_model=FastUI, response_model_exclude_none=True)
 def routes_view(page: int = 1) -> list[AnyComponent]:
     routes = routes_list()
     page_size = 1

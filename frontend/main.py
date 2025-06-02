@@ -20,7 +20,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from header import demo_page
 
+version = "v1"
+# app = FastAPI(
+#     version=version
+# )
+
 # app = FastAPI()
+
 @asynccontextmanager
 async def lifespan(app_: FastAPI):
     async with AsyncClient() as client:
@@ -47,7 +53,7 @@ app.add_middleware(
 
 app.include_router(index_router, prefix="/api")
 app.include_router(table_router, prefix='/api/table/routes')
-app.include_router(add_router, prefix='/api/addroute')
+app.include_router(add_router, prefix=f'/api/{version}/addroute')
 
 
 
