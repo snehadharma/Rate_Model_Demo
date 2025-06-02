@@ -53,7 +53,7 @@ app.add_middleware(
 
 app.include_router(index_router, prefix="/api")
 app.include_router(table_router, prefix='/api/table/routes')
-app.include_router(add_router, prefix=f'/api/{version}/addroute')
+app.include_router(add_router, prefix='/api/addroute')
 
 
 
